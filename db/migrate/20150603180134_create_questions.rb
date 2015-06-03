@@ -1,7 +1,7 @@
-class CreateFields < ActiveRecord::Migration
+class CreateQuestions < ActiveRecord::Migration
   def change
-    create_table :fields do |t|
-      t.string :question
+    create_table :questions do |t|
+      t.string :name
       t.string :type
       t.integer :survey_id
 
