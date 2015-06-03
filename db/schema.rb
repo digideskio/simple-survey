@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150603180139) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "tag_type"
     t.integer  "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

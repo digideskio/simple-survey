@@ -1,0 +1,9 @@
+<h1><%= @survey.name %></h1>
+<% @questions.each do |question| %>
+  <%= question.name %> <br>
+  <%= question.tag_type %>
+  <% question.options.each do |option| %>
+
+    <%= option.name %>
+  <% end %>
+<% end %>

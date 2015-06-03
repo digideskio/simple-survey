@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'surveys#index'
+  resources :surveys
+
   get 'surveys/new'
   get 'surveys/create'
 
