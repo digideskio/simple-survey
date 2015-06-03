@@ -1,9 +1,19 @@
 <h1><%= @survey.name %></h1>
-<% @questions.each do |question| %>
-  <%= question.name %> <br>
-  <%= question.tag_type %>
-  <% question.options.each do |option| %>
-
-    <%= option.name %>
-  <% end %>
+<%= simple_form_for Survey.new do |f| %>
+  <% @questions.each_with_index do |question,index| %>
+    <%= question.name %> <br>
+      <%= f.simple_fields_for :questions do |q| %>
+        <% question.options.each_with_index do |option, i| %>
+          <% if question.tag_type == "radio" %>
+            <%= radio_button_tag("questions[#{question.id}]", option.id) %>
+            <%= label_tag(:option, option.name) %> <br>
+          <% else %>
+            <%= check_box_tag("questions[#{question.id}]", option.id) %>
+            <%= label_tag(:option, option.name) %> <br>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <br>
+  <%= f.submit "Submit" %>
 <% end %>

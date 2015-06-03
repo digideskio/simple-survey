@@ -8,17 +8,23 @@ class SurveysController < ApplicationController
     @questions = Question.includes(:options).all
   end
 
-  # def new
-  #   @survey = Survey.new
-  # end
+  def create
+    p "*"*30
+    params['questions'].each do |k,v|
 
-  # def create;end
+    end
+    redirect_to root_path
+  end
 
   # def update;end
 
   # def destroy;end
 
   private
+
+  # def questionare_params
+  #   params.require(:survey).permit(:questions)#, answer_attributes: [:option_id, :survey_id])
+  # end
 
   def find_survey
     @survey = Survey.find(params[:id])
